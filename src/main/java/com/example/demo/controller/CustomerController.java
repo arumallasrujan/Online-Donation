@@ -25,6 +25,12 @@ public class CustomerController{
 		mv.setViewName("customerreg");
 		return mv;
 	}
+	@GetMapping("customerhome")
+	public ModelAndView customerhome() {
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("customerhome");
+		return mv;
+	}
 	
 	@GetMapping("customerlogin")
 	public ModelAndView customerlogin() {

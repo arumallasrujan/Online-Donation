@@ -38,7 +38,12 @@
                     <td>
                         <c:choose>
                             <c:when test="${not empty donation.documentPath}">
-                                <a href="${pageContext.request.contextPath}/uploaded_docs/${donation.documentPath}" target="_blank">View</a>
+                                <a href="${pageContext.request.contextPath}/files/${donation.documentPath}" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer" 
+                                   title="View Donation Document">
+                                    View
+                                </a>
                             </c:when>
                             <c:otherwise>
                                 No Document
@@ -50,5 +55,6 @@
         </tbody>
     </table>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

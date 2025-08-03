@@ -68,7 +68,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
     <div class="container">
-        <a class="navbar-brand" href="#">Online Donation</a>
+        <a class="navbar-brand" href="HomePage.jsp">Online Donation</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" 
                 aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -77,7 +77,7 @@
         <div class="collapse navbar-collapse" id="navbarMain">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="HomePage.jsp">Home</a>
+                    <a class="nav-link active" aria-current="page" href="customerHome.jsp">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="profile.jsp">Profile</a>

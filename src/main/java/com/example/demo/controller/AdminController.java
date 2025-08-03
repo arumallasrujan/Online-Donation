@@ -21,12 +21,13 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
+    // Show admin login page
     @GetMapping("/login")
     public String showLogin() {
         return "adminLogin"; 
     }
 
-    // Process admin login
+    // Process admin login form
     @PostMapping("/login")
     public String processLogin(@RequestParam String username,
                                @RequestParam String password,
@@ -36,7 +37,7 @@ public class AdminController {
         Admin admin = adminService.findByUsername(username);
 
         if (admin != null && admin.getPassword().equals(password)) {
-            // login success: store admin info in session
+            // Login success: store admin info in session
             HttpSession session = request.getSession();
             session.setAttribute("admin", admin);
             return "redirect:/admin/dashboard";
@@ -48,11 +49,12 @@ public class AdminController {
 
     // Admin dashboard page
     @GetMapping("/dashboard")
-    public String adminDashboard(HttpSession session, Model model) {
+    public String adminDashboard(HttpSession session) {
         if (session.getAttribute("admin") == null) {
             return "redirect:/admin/login";
         }
-        return "adminDashboard"; // create a simple dashboard JSP or redirect
+        // You can add any dashboard data here if needed
+        return "adminDashboard"; // JSP page for admin dashboard
     }
 
     // Show all customers
@@ -63,10 +65,10 @@ public class AdminController {
         }
         List<Customer> customers = adminService.findAllCustomers();
         model.addAttribute("customers", customers);
-        return "adminCustomers";  // adminCustomers.jsp
+        return "adminCustomers";  // JSP page to list customers
     }
 
-    // Show all donations
+    // Show all donations with downloadable PDF links
     @GetMapping("/donations")
     public String viewAllDonations(HttpSession session, Model model) {
         if (session.getAttribute("admin") == null) {
@@ -74,10 +76,10 @@ public class AdminController {
         }
         List<Donation> donations = adminService.findAllDonations();
         model.addAttribute("donations", donations);
-        return "adminDonations";  // adminDonations.jsp
+        return "adminDonations";  // JSP page to list donations with files
     }
 
-    // Logout admin
+    // Admin logout
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();

@@ -35,7 +35,9 @@
                             <td>${don.details}</td>
                             <td>
                                 <c:if test="${not empty don.documentPath}">
-                                    <a href="uploaded_docs/${don.documentPath}" target="_blank">View Document</a>
+                                    <a href="${pageContext.request.contextPath}/files/${don.documentPath}" target="_blank" rel="noopener noreferrer" title="View the donation document">
+                                        View Document
+                                    </a>
                                 </c:if>
                                 <c:if test="${empty don.documentPath}">
                                     No Document
@@ -47,7 +49,7 @@
             </table>
         </c:otherwise>
     </c:choose>
-    <a href="donation" class="btn btn-primary mt-3">Make a New Donation</a>
+    <a href="${pageContext.request.contextPath}/donation" class="btn btn-primary mt-3">Make a New Donation</a>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
